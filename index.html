@@ -2,14 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50' font-size='90' text-anchor='middle' dominant-baseline='central'>🐢</text></svg>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Lorena Turns 30 - A night of bass, friends, and celebration." />
-    <meta name="theme-color" content="#000000" />
     <title>Lorena Turns 30 🐢</title>
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        background: radial-gradient(circle at center, #ff00cc, #6600ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+      }
+      h1 {
+        font-size: 3rem;
+        text-shadow: 0 0 20px #ff00cc;
+      }
+      audio {
+        display: none;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <h1>Lorena Turns 30 🎉</h1>
+    <audio autoplay loop>
+      <source src="music/lorena-theme.m4a" type="audio/mp4" />
+      Your browser does not support the audio element.
+    </audio>
   </body>
 </html>
