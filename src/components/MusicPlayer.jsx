@@ -37,7 +37,7 @@ const MusicPlayer = () => {
 
         <audio
           ref={audioRef}
-          src="/boss-fight-hol.mp3"
+          src="/boss-fight-hol.m4a"
           onEnded={() => setIsPlaying(false)}
         />
 
