@@ -129,7 +129,7 @@ const Background = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0">
+    <div className="fixed inset-0 z-0 bg-black">
       {/* Canvas for animated particles and falling stars */}
       <canvas
         ref={canvasRef}
