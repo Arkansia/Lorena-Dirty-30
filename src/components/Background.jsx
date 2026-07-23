@@ -13,7 +13,7 @@ const Background = () => {
 
     // Particles for the main floating effect
     const particles = [];
-    const particleCount = 60;
+    const particleCount = 40;
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -29,7 +29,7 @@ const Background = () => {
 
     // Falling stars (like code rainfall)
     const fallingStars = [];
-    const starCount = 100;
+    const starCount = 80;
 
     for (let i = 0; i < starCount; i++) {
       fallingStars.push({
@@ -48,12 +48,12 @@ const Background = () => {
       ctx.fillStyle = 'rgba(0, 0, 5, 0.15)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Draw radial gradient for magenta glow
+      // Draw radial gradient for magenta glow (central focus)
       const centerX = canvas.width / 2;
-      const centerY = canvas.height / 2;
-      const radialGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, Math.max(canvas.width, canvas.height));
-      radialGradient.addColorStop(0, 'rgba(255, 0, 110, 0.08)');
-      radialGradient.addColorStop(0.5, 'rgba(138, 43, 226, 0.04)');
+      const centerY = canvas.height / 3;
+      const radialGradient = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, Math.max(canvas.width, canvas.height) * 0.8);
+      radialGradient.addColorStop(0, 'rgba(255, 0, 110, 0.1)');
+      radialGradient.addColorStop(0.5, 'rgba(138, 43, 226, 0.05)');
       radialGradient.addColorStop(1, 'rgba(25, 0, 60, 0)');
       ctx.fillStyle = radialGradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -129,58 +129,15 @@ const Background = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 bg-black">
+    <div className="fixed inset-0 z-0 bg-black overflow-hidden">
       {/* Canvas for animated particles and falling stars */}
       <canvas
         ref={canvasRef}
-        className="w-full h-full"
+        className="w-full h-full block"
       />
 
-      {/* Speaker stacks - Left */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 opacity-25 pointer-events-none">
-        <div className="w-24 h-96 bg-gradient-to-b from-pink-900 via-black to-pink-900 rounded-lg shadow-2xl shadow-pink-600/60 speaker-pulse">
-          <div className="w-full h-full flex flex-col gap-2 p-2">
-            <div className="flex-1 bg-gray-900 rounded shadow-lg shadow-pink-500/40"></div>
-            <div className="flex-1 bg-gray-900 rounded shadow-lg shadow-pink-500/40"></div>
-            <div className="flex-1 bg-gray-900 rounded shadow-lg shadow-pink-500/40"></div>
-          </div>
-        </div>
-      </div>
-
-      {/* Speaker stacks - Right */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-25 pointer-events-none">
-        <div className="w-24 h-96 bg-gradient-to-b from-pink-900 via-black to-pink-900 rounded-lg shadow-2xl shadow-pink-600/60 speaker-pulse" style={{ animationDelay: '0.5s' }}>
-          <div className="w-full h-full flex flex-col gap-2 p-2">
-            <div className="flex-1 bg-gray-900 rounded shadow-lg shadow-pink-500/40"></div>
-            <div className="flex-1 bg-gray-900 rounded shadow-lg shadow-pink-500/40"></div>
-            <div className="flex-1 bg-gray-900 rounded shadow-lg shadow-pink-500/40"></div>
-          </div>
-        </div>
-      </div>
-
-      {/* Glowing mushrooms - now more magenta/pink */}
-      <div className="absolute bottom-20 left-1/4 opacity-20 pointer-events-none">
-        <div className="w-16 h-20 bg-gradient-to-b from-pink-500 to-pink-700 rounded-full shadow-lg shadow-pink-500/70 glow-mushroom">
-          <div className="w-full h-1/3 bg-pink-300 rounded-t-full opacity-40"></div>
-        </div>
-      </div>
-
-      <div className="absolute bottom-16 right-1/4 opacity-20 pointer-events-none">
-        <div className="w-12 h-16 bg-gradient-to-b from-pink-400 to-pink-600 rounded-full shadow-lg shadow-pink-500/70 glow-mushroom" style={{ animationDelay: '1s' }}>
-          <div className="w-full h-1/3 bg-pink-200 rounded-t-full opacity-40"></div>
-        </div>
-      </div>
-
-      <div className="absolute bottom-24 left-1/2 opacity-20 pointer-events-none">
-        <div className="w-14 h-18 bg-gradient-to-b from-pink-500 to-purple-700 rounded-full shadow-lg shadow-pink-500/70 glow-mushroom" style={{ animationDelay: '0.5s' }}>
-          <div className="w-full h-1/3 bg-pink-200 rounded-t-full opacity-40"></div>
-        </div>
-      </div>
-
-      {/* Hidden turtle easter eggs */}
-      <div className="absolute top-1/4 left-5 opacity-5 pointer-events-none text-2xl">🐢</div>
-      <div className="absolute top-3/4 right-10 opacity-5 pointer-events-none text-xl">🐢</div>
-      <div className="absolute bottom-1/4 left-1/3 opacity-5 pointer-events-none text-xl">🐢</div>
+      {/* Decorative gradient overlay (non-interactive) */}
+      <div className="absolute inset-0 pointer-events-none opacity-30 bg-gradient-to-t from-pink-900/20 via-transparent to-purple-900/10"></div>
     </div>
   );
 };
